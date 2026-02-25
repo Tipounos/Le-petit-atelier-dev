@@ -1,0 +1,218 @@
+/*  Hi */
+
+
+/* Imports */
+
+    /*  Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+    /*  Icons */
+        @import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+/*  Global */
+
+:root {
+    --bg: hsl(60, 30%, 90%);
+    --bg-dark: hsl(60, 30%, 85%);
+    --primary: #F2A65A;
+    --primary-hover: #EEC170;
+    --important-text: hsl(116, 100%, 12%);
+    --text: hsl(0, 0%, 0%);
+    --muted-text: hsl(116, 10%, 20%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: calc(6vh + 5px);
+}
+
+section {
+    min-height: 100vh;
+}
+
+* {
+    font-family: "Google Sans";
+}
+
+/*  Nav bar */
+
+/*  Wide screen */
+nav.large-only {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 6vh;
+    background-color: #f2a65a;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    z-index: 999;
+    box-shadow: 0 0 50px black;
+}
+
+.empty_space {
+    grid-column: span 3;
+}
+
+nav.large-only li {
+    list-style: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+nav.large-only li:not(.empty_space) {
+    grid-column: span 1;
+}
+
+nav.large-only li a {
+    text-decoration: none;
+    color: #585123;
+    font-family: 'DM serif text';
+}
+
+/*  Landing */
+
+#accueil {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: hsla(0, 0%, 100%, 0.3);
+    justify-content: space-around;
+}
+
+#accueil::before {
+    content: "";
+    position: absolute;
+    background-image: url(images/main-bg.png);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.header h1 {
+    font-size: clamp(2rem, calc(8vw + 1rem), 5rem);
+    font-family: "DM serif text";
+    font-weight: 100;
+    color: var(--important-text);
+}
+
+.header h2 {
+    font-size: clamp(.8rem, calc(4vw + .1rem), 1.5rem);
+    color: var(--muted-text);
+}
+
+#accueil a {
+    padding: 15px 20px;
+    background-color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    color: rgb(11, 71, 11);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid hsl(0, 0%, 100%);
+    transition: .5s ease;
+}
+
+#accueil a:hover {
+    background-color: var(--primary-hover);
+    transform: scale(105%);
+}
+
+#accueil p {
+    width: 80%;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+/*  Responsiveness */
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .mobile-only {
+        display: block;
+    }
+    .large-only {
+        display: none !important;
+    }
+    html {
+        scroll-padding: 5px;
+    }
+}
+
+/*  Responsive navbar */
+.open-sidebar, .close-sidebar {
+    position: fixed;
+    top: 10px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text);
+    width: fit-content;
+    height: fit-content;
+    z-index: 998;
+}
+
+.open-sidebar {
+    right: 10px;
+}
+
+.close-sidebar {
+    left: 10px;
+    display: none;
+}
+
+.open-sidebar:active {
+    background-color: red;
+}
+
+nav.mobile-only {
+    width: 80%;
+    position: fixed;
+    right: 0;
+    height: 100%;
+    background-color: var(--bg);
+    z-index: 999;
+    transition: .3s ease;
+}
+
+nav.mobile-only li {
+    list-style: none;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+nav.mobile-only li a {
+    text-decoration: none;
+    background-color: var(--bg-dark);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showSidebar {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#sidebar:not(.showSidebar) {
+    transform: translateX(100%);
+    opacity: 0;
+}

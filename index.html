@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le petit atelier traiteur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="open-sidebar mobile-only" id="open-sidebar">
+        <i class="fi fi-sr-menu-burger"></i>
+    </button>
+    <button class="close-sidebar mobile-only" id="close-sidebar">
+        <i class="fi fi-sr-cross-small"></i>
+    </button>
+    <!--Wide screen navbar -->
+    <nav class="large-only">
+        <li><a href="#accueil">Accueil</a></li>
+        <li class="empty_space"></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </nav>
+    <!-- Small screen navbar -->
+     <nav class="mobile-only" id="sidebar">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#contact">Contact</a></li>
+     </nav>
+
+    <section id="accueil">
+        <div class="header">
+            <h1>Le petit atelier - Traiteur</h1>
+            <h2>Cuisine artisanale, produits frais & prestations sur mesure pour tous vos événements.</h2>            
+        </div>
+
+        <a href="#contact">Demander un devis</a>
+        <p>
+            Basé à Béziers, Le Petit Atelier propose une cuisine faite maison
+            élaborée à partir de produits frais, locaux et de saison.
+            Chaque prestation est pensée sur mesure afin de répondre aux
+            attentes et aux envies de ses clients.
+        </p>
+    </section>
+
+    <section id="apropos">
+        <h2>À propos</h2>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, eos aliquam quasi blanditiis dolor ut placeat dolore assumenda in molestiae quos unde asperiores deleniti sunt est praesentium maxime esse. Eaque?
+        </p>
+    </section>
+
+    <section id="prestations">
+        <h2>Prestations</h2>
+        <p>
+            Le Petit Atelier accompagne ses clients dans l'organisation
+            de leurs événements avec des prestations sur mesure.
+        </p>
+        <p>
+            Différents formats peuvent être imaginés selon les besoins,
+            comme des buffets, cocktails ou brunchs.
+        </p>
+        <p>
+            Une attention particulière est portée à la qualité des produits,
+            à la fraîcheur et à la présentation.
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            Adresse : 26 Avenue du Port Notre Dame, 34500 Béziers
+        </p>
+        <p>
+            Vous préparez un événement ? Contactez-nous pour obtenir
+            un devis personnalisé.
+        </p>
+
+        <form>
+            <label>Nom :</label><br>
+            <input type="text" name="nom"><br><br>
+
+            <label>Email :</label><br>
+            <input type="email" name="email"><br><br>
+
+            <label>Téléphone :</label><br>
+            <input type="tel" name="telephone"><br><br>
+
+            <label>Date de l'événement :</label><br>
+            <input type="date" name="date"><br><br>
+
+            <label>Message :</label><br>
+            <textarea name="message"></textarea><br><br>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Le Petit Atelier - Traiteur à Béziers</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
