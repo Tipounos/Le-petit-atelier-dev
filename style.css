@@ -1,6 +1,5 @@
 /*  Hi */
 
-
 /* Imports */
 
     /*  Fonts */
@@ -14,11 +13,12 @@
 :root {
     --bg: hsl(60, 30%, 90%);
     --bg-dark: hsl(60, 30%, 85%);
-    --primary: #F2A65A;
-    --primary-hover: #EEC170;
-    --important-text: hsl(116, 100%, 12%);
+    --primary: #5fa8d3;
+    --primary-hover: #bee9e8;
+    --important-text: hsl(257, 100%, 12%);
     --text: hsl(0, 0%, 0%);
     --muted-text: hsl(116, 10%, 20%);
+    --dark-text: #585123;
 }
 
 body {
@@ -29,15 +29,20 @@ body {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding: calc(6vh + 5px);
-}
-
-section {
-    min-height: 100vh;
+    scroll-padding: 6vh;
+    box-sizing: border-box;
 }
 
 * {
     font-family: "Google Sans";
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+section:not(#temoignages) {
+    min-height: 100vh;
 }
 
 /*  Nav bar */
@@ -48,9 +53,9 @@ nav.large-only {
     position: sticky;
     top: 0;
     height: 6vh;
-    background-color: #f2a65a;
+    background-color: var(--primary);
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     z-index: 999;
     box-shadow: 0 0 50px black;
 }
@@ -73,8 +78,13 @@ nav.large-only li:not(.empty_space) {
 
 nav.large-only li a {
     text-decoration: none;
-    color: #585123;
+    color: var(--dark-text);
     font-family: 'DM serif text';
+    transition: .3s ease;
+}
+
+nav.large-only li a:hover {
+    color: var(--muted-text);
 }
 
 /*  Landing */
@@ -87,6 +97,7 @@ nav.large-only li a {
     position: relative;
     background-color: hsla(0, 0%, 100%, 0.3);
     justify-content: space-around;
+    height: 100vh;
 }
 
 #accueil::before {
@@ -131,6 +142,51 @@ nav.large-only li a {
     width: 80%;
     font-size: 1.1rem;
     color: var(--text);
+}
+
+/*  Sections */
+
+h2 {
+    font-size: 2rem;
+}
+
+section:not(#accueil) {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+section:not(#accueil) p {
+    max-width: 70%;
+}
+
+.img-text {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.img-text div {
+    width: clamp(500px, 40%, 1000px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-text div img {
+    border-radius: 15px;
+    width: auto;
+    max-width: 80%;
+}
+
+#temoignages {
+    height: 70vh ;
 }
 
 /*  Responsiveness */
@@ -215,4 +271,110 @@ nav.mobile-only li a {
 #sidebar:not(.showSidebar) {
     transform: translateX(100%);
     opacity: 0;
+}
+
+/*  Values */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    width: 90%;
+}
+
+/* From Uiverse.io by adamgiebl */ 
+.card {
+  border-radius: 30px;
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    transition: .4s ease;
+}
+
+.card img {
+    width: 80%;
+    height: 40%;
+    position: relative;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card:first-child img {
+    object-position: bottom;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+}
+
+/*  Contact */
+
+button {
+    background-color: var(--primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+/*  FAQ */
+
+.question {
+    display: none;
+}
+
+.answer {
+    opacity: 0;
+    transition: .5s ease;
+    width: 90%;
+    padding: 5%;
+    transform: translateY(-50px);
+    z-index: -9999;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 50px;
+}
+
+.question:checked ~ .answer {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    z-index: inherit;
+    position: relative;
+}
+
+.question-label {
+    border: 1px solid black;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.collapsible {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
